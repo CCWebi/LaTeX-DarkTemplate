@@ -1,0 +1,57 @@
+\documentclass[12pt, letterpaper]{article} % Tamaño default y tipo de documento
+% FIRA MONO
+% \usepackage[scale = 0.82]{FiraMono} % Fuente (excepto portadas, see (Mini)Portada.tex)
+% \renewcommand{\familydefault}{\ttdefault} % Estilo de letra (para usar FiraMono)
+% \usepackage[T1]{fontenc} % Aplicar
+
+% FIRA SANS
+% \usepackage[sfdefault]{FiraSans} % Fuente (excepto portadas, see (Mini)Portada.tex)
+% \usepackage[T1]{fontenc} % Aplicar
+% \renewcommand{\oldstylenums}[1]{{\firaoldstyle #1}}
+
+% Roboto
+% \usepackage[sfdefault]{roboto} % Fuente (excepto portadas, see (Mini)Portada.tex)
+% \usepackage[T1]{fontenc} % Aplicar
+
+% Default
+\usepackage[T1]{fontenc} % Uso de Montserrat en portada
+
+
+\usepackage[spanish, mexico]{babel} % Uso de acentos y ñ
+\usepackage[margin = 0.75in]{geometry} % Márgen del documento (0.75 - 1.25in en letter)
+
+% -------------
+% Cambiar el tema
+\newcommand{\tema}{darkcula}
+% -------------
+
+\input{docUI/Paquetes}
+\input{docUI/Extras}
+
+\pagestyle{fancy} % Aplicar header y footer
+\pagecolor{Background} % Color del fondo
+\color{Foreground} % Color del frente
+\lstset{style=mystyle} % Aplicar tema del código
+\setlength{\headheight}{29pt}
+\setlength{\textheight}{\textheight-0.75cm}
+\justifying
+% \sloppy % Fira Mono
+%--------
+
+%--------
+\begin{document}
+    %------------------------------------------------------------
+    \thispagestyle{empty} % Sin header y footer esta página
+    % Portada
+    % \input{docUI/MiniPortada}
+    \input{docUI/Portada}
+    %------------------------------------------------------------
+    % Inicio del documento
+    \vspace{2cm}
+    % \ttfamily % Fira Mono
+    % \sffamily % Fira Sans / Roboto
+    \input{sections/section}
+    \newpage
+    \nocite{*}
+    \printbibliography
+\end{document}

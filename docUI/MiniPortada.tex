@@ -1,0 +1,62 @@
+% -------------
+% Módulo con la portada de un cuarto de altura.
+% -------------
+
+{\fontfamily{Montserrat-TOsF}\selectfont
+
+\begin{center}
+    % -------------
+    % Logo Uni
+    % -------------
+    \begin{minipage}{2.5cm}
+    	\begin{center}
+	    \includegraphics[width=2.4cm]{resources/Logo_Universidad.png}
+    	\end{center}
+    \end{minipage}
+    % -------------
+    % Títulos
+    % -------------
+    \begin{minipage}{\linewidth - 5.2cm}
+    \begin{center}
+    {\small
+        {\scshape       
+            {\color{Variante6}
+                \printVar{universidad}
+            }
+            
+            {\color{Variante4}
+                \printVar{facultad} | \printVar{carrera}
+            }
+        
+            {\color{Variante5}
+                \printVar{materia} | \printVar{semestre}
+            }
+
+            \vspace{0.15cm}
+            
+            {\large \color{Variante3}
+                \printVar{titulo}
+            }
+            
+        } % scshape
+            
+        \vspace{0.15cm}
+        
+        {\color{Variante8} \footnotesize
+            \begin{tabular}{>{\raggedleft\arraybackslash} p{\linewidth - 6.5cm} | >{\raggedright\arraybackslash} p{3.5cm}}
+                \getAlumnos
+            \end{tabular}
+        }
+    } % small
+    \end{center}
+    \end{minipage}
+    % -------------
+    % Logo Fac
+    % -------------
+    \begin{minipage}{2.5cm}
+    	\begin{center}
+	       \includegraphics[width=2.4cm]{resources/Logo_Facultad.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+} % Montserrat use

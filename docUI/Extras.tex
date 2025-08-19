@@ -1,0 +1,102 @@
+% -------------
+% Módulo con datos de condiguración del documento.
+% Contiene comandos, temas, código de Lua, header y footer.
+% -------------
+
+% -------------
+% Nuevos comandos
+% -------------
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\sii}{\Longleftrightarrow}
+\newcommand{\qed}{\hfill $\blacksquare$}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\spc}{\textvisiblespace}
+
+% -------------
+% Config. portada y headers con Lua
+% -------------
+\directlua{dofile("docUI/datos_portada_ui.lua")}
+
+\newcommand{\getAlumnos}{
+    \luadirect{imprimeAlumnos()}
+}
+\newcommand{\getDocentes}{
+    \luadirect{imprimeDocentes()}
+}
+\newcommand{\printVar}[1]{
+    \luadirect{tex.print(#1)}
+}
+\newcommand{\getColor}[1]{
+    \luadirect{getColor(#1)}
+}
+
+% -------------
+% Theme
+% -------------
+\luadirect{seleccionaTema("\luaescapestring{\tema}")}
+
+% -------------
+% Tema de código (lstlisting - listings)
+% -------------
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{Background!95!Foreground},
+    rulecolor=\color{Foreground},
+    commentstyle=\color{Variante1},
+    keywordstyle=\color{Variante4},
+    escapebegin=\color{Variante3},
+    numberstyle=\tiny\color{Variante9!50!Background},
+    stringstyle=\color{Variante6},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=10pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    columns=flexible,
+    framexleftmargin=4pt,
+    framexrightmargin=4pt,
+}
+
+% -------------
+% Encabezados y pies de página
+% -------------
+
+% Diseño <<fancy>>
+\fancyhf{}
+
+% Encabezado
+\lhead[]{ % izquierda
+    {\small\fontfamily{Montserrat-TOsF}\selectfont
+    \begin{tabular}{m{.75cm} m{6cm}}
+        \includegraphics[width=.75cm]{resources/Logo_Universidad.png} & {\color{Variante7} \printVar{uni} | \printVar{facultad}}
+        
+        {\color{Variante7} \printVar{carrera}} \\
+    \end{tabular}
+    }
+}
+
+\rhead[]{ % derecha
+    {\small\fontfamily{Montserrat-TOsF}\selectfont
+    \begin{tabular}{>{\RaggedLeft} m{6cm} m{.75cm}}
+        \color{Variante3} \printVar{materia}: & \multirow{2}{*}{\includegraphics[width=.75cm]{resources/Logo_Facultad.png}} \\
+        \color{Variante3} \printVar{titulo}&\\
+    \end{tabular}
+    }
+}
+%Pie de página
+
+\cfoot[]{ % center
+    {\small\color{Variante1}\fontfamily{Montserrat-TOsF}\selectfont
+    \begin{tabular}{c c c}
+        $\boldsymbol{-}$ & \thepage & $\boldsymbol{-}$
+    \end{tabular}
+  }
+}
