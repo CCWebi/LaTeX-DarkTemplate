@@ -24,8 +24,8 @@ Las imágenes default son de dominio público por Wikimedia Commons.
 
 ## Resultados
 
-- [Tema 1 - Portada pequeña](./output_theme1_portada-cuarto.pdf)
-- [Tema 2 - Portada completa](./output_theme2_portada-completa.pdf)
+- [Tema 1 - Portada pequeña](./output/theme1_portada-cuarto.pdf)
+- [Tema 2 - Portada completa](./output/theme2_portada-completa.pdf)
 
 ## Estructura
 
