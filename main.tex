@@ -5,16 +5,16 @@
 % \usepackage[T1]{fontenc} % Aplicar
 
 % FIRA SANS
-\usepackage[sfdefault]{FiraSans} % Fuente (excepto portadas, see (Mini)Portada.tex)
-\usepackage[T1]{fontenc} % Aplicar
-\renewcommand{\oldstylenums}[1]{{\firaoldstyle #1}}
+% \usepackage[sfdefault]{FiraSans} % Fuente (excepto portadas, see (Mini)Portada.tex)
+% \usepackage[T1]{fontenc} % Aplicar
+% \renewcommand{\oldstylenums}[1]{{\firaoldstyle #1}}
 
 % Roboto
 % \usepackage[sfdefault]{roboto} % Fuente (excepto portadas, see (Mini)Portada.tex)
 % \usepackage[T1]{fontenc} % Aplicar
 
 % Default
-% \usepackage[T1]{fontenc} % Uso de Montserrat en portada
+\usepackage[T1]{fontenc} % Uso de Montserrat en portada
 
 
 \usepackage[spanish, mexico]{babel} % Uso de acentos y ñ
@@ -22,7 +22,7 @@
 
 % -------------
 % Cambiar el tema
-\newcommand{\tema}{twodark}
+\newcommand{\tema}{darkcula}
 % -------------
 
 \input{docUI/Paquetes}
@@ -49,7 +49,7 @@
     % Inicio del documento
     \vspace{2cm}
     % \ttfamily % Fira Mono
-    \sffamily % Fira Sans / Roboto
+    % \sffamily % Fira Sans / Roboto
     \input{sections/section}
     \newpage
     \nocite{*}
