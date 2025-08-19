@@ -68,4 +68,4 @@ Cuenta con varios ejemplos de uso, pero está listo para ser usado y modificado.
 Se encuentra con una documentación ligera para su uso.
 
 > [!TIP]
-> Es posible usar el compilador pdfLaTeX, pasando los datos a estáticos, para dudas (contáctame)[https://github.com/CCWebi].
+> Es posible usar el compilador pdfLaTeX, pasando los datos a estáticos, para dudas [contáctame](https://github.com/CCWebi).
