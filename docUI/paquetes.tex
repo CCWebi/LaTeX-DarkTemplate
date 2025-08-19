@@ -1,0 +1,55 @@
+% -------------
+% Módulo con los paquetes default de la plantilla.
+% -------------
+
+\usepackage{luacode} % Ejecutar lua-code
+\usepackage{silence}
+\usepackage[
+backend=biber,
+style=numeric,
+sortlocale=author,
+]{biblatex} % Bibliografías y referencias
+\usepackage{csquotes} % Comillas para biblatex
+\bibliography{sample.bib} % Archivo con las referencias
+\usepackage{tikz} % Para gráficar elementos
+\usetikzlibrary {automata,positioning,arrows.meta} % Necesarios para árboles, automatas, etc
+
+\usepackage[dvipsnames, table]{xcolor} % Colores (colores dvisps y para NiceMatrix)
+\usepackage{luacolor} % LuaLaTeX colors optim
+\usepackage{lua-ul} % LuaLaTeX highlighting and strikeout
+\usepackage{soul} % pdflatex highlighting
+
+\usepackage{calc} % Cálculos JIT
+\usepackage{bold-extra} % Small bold/TT caps
+\usepackage{ragged2e} % Justificación del texto
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,commath} % Símbolos y fuenets matemáticas
+\usepackage{siunitx} % Unidades del SisInt (útil con floats)
+\usepackage{systeme} % Sistemas de ecuaciones
+
+\usepackage{multicol} % Multicolumnas en tablas
+\usepackage{multirow} % Multirenglones en tablas
+\usepackage{colortbl} % Color en tablas default
+\usepackage{nicematrix} % Para tablas GOD 
+\usepackage{longtable} % Tablas multipágina
+\usepackage{booktabs} % Tablas simples pero más bonitas (sin verticales)
+\usepackage{worldflags} % Banderas 4K
+
+\usepackage{graphicx} % Gráficas
+\usepackage{lipsum} % Lorem Ipsum
+\usepackage{fancyhdr} % Headers y footers
+\usepackage{listings} % Código
+
+\usepackage{comment} % Environment comentario
+\usepackage{wrapfig} % Texto pegado a imagenes
+\usepackage{adjustbox} % Ajustar tablas a tamaño \begin{adjustbox}{width=\textwidth}
+\usepackage{parskip} % Evita usar // y separa automáticamente
+\usepackage{enumitem} % Format enumerates/itemize
+\usepackage{caption} % Format captions
+\usepackage{subcaption} % Captions distintos en misma figura
+\usepackage{hyperref} % Referenicias (in document)
+\usepackage{float} % Float (opción H "h pero obligado")
+\usepackage{etoolbox} % ifs
+\usepackage{setspace} % Interlineado
+\usepackage{fancyvrb} % Formatear verbatim
+
