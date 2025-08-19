@@ -46,6 +46,8 @@ Cuenta con cuatro temas en `/docUI/datos_portada_ui`:
 
 Es posible cambiar los temas en `main.tex` en `\newcommand{\tema}{<TEMA>}` y crear nuevos directo en `datos_portada_ui.lua`.
 
+Si se busca cambiar la tipografía (a una dentro del documento), es necesario descomentar las líneas bajo el nombre de la tipografía, comentar la línea bajo `% Default` y descomentar líneas del estilo como `% \sloppy % Fira Mono` a `\sloppy % Fira Mono` i.e. `<commando> % <Tipografía>`. Para más información visitar [Font Catalogue](https://tug.org/FontCatalogue/allfonts.html)
+
 ## Elementos
 
 Tiene portada de hoja entera y de cuarto de hoja, es podible carmbiarlas en `main.tex`, alternando el comentado de la línea:
