@@ -22,6 +22,11 @@ En el docuemnto `datos_portada_ui.lua` se deben cambiar los datos de la portada.
 Es posible usar ese u otro archivo `*.lua` para trabajar con datos dinámicos antes de compilar.
 Las imágenes default son de dominio público por Wikimedia Commons.
 
+## Resultados
+
+- [Tema 1 - Portada pequeña](./output_theme1_portada-cuarto.pdf)
+- [Tema 2 - Portada completa](./output_theme2_portada-completa.pdf)
+
 ## Estructura
 
 - `docUI/` : Carpeta con datos de UI como temas y colores; y datos del preámbulo como paquetes, comandos.
