@@ -1,0 +1,297 @@
+%% Contenido
+
+{\bfseries\Large\color{Variante3} Título}
+
+{\bfseries\large\color{Variante7} Subtítulo}
+
+\lipsum[1-2]
+
+\vfill
+
+\begin{lstlisting}[style=mystyle, language=Haskell]
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
+main :: IO ()
+main = do
+  putStrLn "Ingrese un número:"
+  input <- getLine
+  let num = read input :: Int
+  putStrLn $ "El factorial de " ++ show num ++ " es: " ++ show (factorial num)
+\end{lstlisting}
+
+\newpage
+
+\begin{Center}
+    \begin{NiceTabular}{| m{0.3\linewidth} | m{0.3\linewidth} | m{0.3\linewidth} |}[color-inside]
+        \CodeBefore
+            \rowlistcolors{2}{Background, Variante2}
+        \Body
+            \hline \rowcolor{Variante1}
+            \lipsum[1][1] & \lipsum[1][1] & \lipsum[1][1] \\ \hline
+            \lipsum[1][1] & \lipsum[1][1] & \lipsum[1][1] \\ \hline
+            \lipsum[1][1] & \lipsum[1][1] & \lipsum[1][1] \\ \hline
+            \lipsum[1][1] & \lipsum[1][1] & \lipsum[1][1] \\ \hline
+            \lipsum[1][1] & \lipsum[1][1] & \lipsum[1][1] \\ \hline
+            \lipsum[1][1] & \lipsum[1][1] & \lipsum[1][1] \\ \hline
+    \end{NiceTabular}
+
+    \begin{itemize} [label = \textcolor{Variante9}{$\triangleright$}]
+        \item Categoría 1
+        \item Categoría 2
+        \item Categoría 3
+        \begin{itemize} [label = \textcolor{Variante9}{$\diamond$}]
+            \item Subcategoría 1
+            \item Subcategoría 2
+            \item Subcategoría 3
+        \end{itemize}
+        \item Categoría 4
+        \item Categoría 5
+        \item Categoría 6
+    \end{itemize}
+
+    \begin{tikzpicture}[node distance=1.5cm,on grid,auto,semithick,>={Stealth[round]}]
+        \node[state, color=Variante3] (24)                                 {$d$};
+        \node[state] (12) at (202.5:2)                                {$b$};
+        \node[state, color=Variante3] (14) at (337.5:2)                    {$d$};
+        \node[state,accepting, color=Variante6] (01) [below left = of 12]  {$a$};
+        \node[state,accepting] (02) [below right = of 12]             {$b$};
+        \node[state,accepting] (03) [below left = of 14]              {$c$};
+        \node[state,accepting, color=Variante3] (04) [below right = of 14] {$d$};
+        \node[state, color=Variante6] (11) [below right = of 01]           {$a$};
+        \node[state] (13) [below left = of 04]                        {$c$};
+        \node[state, color=Variante6] (21) [below = 3.75cm of 24]          {$a$};
+
+        \node[color=Variante3, text width=5em,text centered] at (270:0.9) {\footnotesize $b<d$};
+        \node[color=Variante3, text width=4em,text centered] at (315:2.6) {\footnotesize $b<c$};
+        \node[color=Variante6, text width=5em,text centered] at (270:3)   {\footnotesize $a<c$};
+        \node[color=Variante6, text width=4em,text centered] at (225:2.6) {\footnotesize $b<c$};
+                    
+        \path[-]  (01)  edge node {} (12)
+                  (01)  edge node {} (11)
+                  (02)  edge node {} (12)
+                  (02)  edge node {} (11)
+                  (03)  edge node {} (13)
+                  (03)  edge node {} (14)
+                  (04)  edge node {} (13)
+                  (04)  edge node {} (14)
+                  (11)  edge node {} (21)
+                  (12)  edge node {} (24)
+                  (13)  edge node {} (21)
+                  (14)  edge node {} (24);
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[shorten >=1pt,node distance=3cm,on grid,auto,semithick,initial text=,>={Stealth[round]}]
+        \node[state,initial]            (1)                    {1};
+        \node[state]                    (3) [above right=of 1] {3};
+        \node[state]                    (2) [below right=of 1] {2};
+        \node[state,accepting]          (4) [above right=of 2] {4};
+        \node[text width=4em,text centered] at (170:1.5) {\footnotesize $(0,0)$};
+                        
+        \path[-] (1) edge node [swap] {1}   (2)
+                 (1) edge node        {5}   (3)
+                 (2) edge node        {1}   (3)
+                 (3) edge node        {1}   (4);
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[node distance=2cm,on grid,auto,semithick,>={Stealth[round]}]
+        \node[] (01)                                        {$(1,^\rightarrow 5|3|2|)$};
+        
+        \node[] (11)   [below left = of 01, xshift=-1.75cm] {$(1,^\rightarrow 3|2|)$};
+        \node[] (15)   [below right = of 01, xshift=1.75cm] {$(5,^\rightarrow 7|6|)$};
+        
+        \node[] (21)   [below left = of 11, xshift=-0.25cm] {$(1,^\rightarrow 2|)$};
+        \node[] (23)   [below right = of 11, xshift=0.25cm] {$(3,^\rightarrow 4|)$};
+        \node[] (25)   [below left = of 15, xshift=-0.25cm] {$(5,^\rightarrow 6|)$};
+        \node[] (27)   [below right = of 15, xshift=0.25cm] {$(7,^\rightarrow 8|)$};
+        
+        \node[] (31)   [below left = of 21, xshift=0.5cm]   {$(1,\emptyset)$};
+        \node[] (32)   [below right = of 21, xshift=-0.5cm] {$(2,\emptyset)$};
+        \node[] (33)   [below left = of 23, xshift=0.5cm]   {$(3,\emptyset)$};
+        \node[] (34)   [below right = of 23, xshift=-0.5cm] {$(4,\emptyset)$};
+        \node[] (35)   [below left = of 25, xshift=0.5cm]   {$(5,\emptyset)$};
+        \node[] (36)   [below right = of 25, xshift=-0.5cm] {$(6,\emptyset)$};
+        \node[] (37)   [below left = of 27, xshift=0.5cm]   {$(7,\emptyset)$};
+        \node[] (38)   [below right = of 27, xshift=-0.5cm] {$(8,\emptyset)$};
+        
+        \node[color=Variante3, text width=5em,text centered] at (270:1.4) {\footnotesize $1>5?$};
+        
+        \node[color=Variante3, text width=5em,text centered] at (222.5:4.25) {\footnotesize $1>3?$};
+        \node[color=Variante3, text width=5em,text centered] at (317.5:4.25) {\footnotesize $5>7?$};
+        
+        \node[color=Variante3, text width=5em,text centered] at (225:6.75) {\footnotesize $1>2?$};
+        \node[color=Variante3, text width=5em,text centered] at (252.5:5)  {\footnotesize $3>4?$};
+        \node[color=Variante3, text width=5em,text centered] at (287.5:5)  {\footnotesize $5>6?$};
+        \node[color=Variante3, text width=5em,text centered] at (315:6.75) {\footnotesize $7>8?$};
+        
+        \path[-]  (01)  edge node {} (11)
+                  (01)  edge node {} (15)
+                  (11)  edge node {} (21)
+                  (11)  edge node {} (23)
+                  (15)  edge node {} (25)
+                  (15)  edge node {} (27)
+                  (21)  edge node {} (31)
+                  (21)  edge node {} (32)
+                  (23)  edge node {} (33)
+                  (23)  edge node {} (34)
+                  (25)  edge node {} (35)
+                  (25)  edge node {} (36)
+                  (27)  edge node {} (37)
+                  (27)  edge node {} (38);
+    \end{tikzpicture}
+
+    \begin{tabular}{|c|}
+        \\
+        5\\ \hline
+        3\\ \hline
+        2\\ \hline
+    \end{tabular}
+
+    \begin{align*}
+        \frac{n}{2^1} + \frac{n}{2^2} + ... + \frac{n}{2^p} 
+        &= (\frac{n}{2^0} + \frac{n}{2^1} + \frac{n}{2^2} + ... + \frac{n}{2^p}) - \frac{n}{2^0}\\
+        &= (\frac{n}{1} + \frac{n}{2^1} + \frac{n}{2^2} + ... + \frac{n}{2^p}) -\frac{n}{1}\\
+        &= (n + \frac{n}{2^1} + \frac{n}{2^2} + ... + \frac{n}{2^p}) - n\\
+        &= (\sum_{i=0}^{p} \frac{n}{2^i}) - n \\
+        &= n(\sum_{i=0}^{p} \frac{1}{2^i}) - n \\
+        &= n(2 - 2^{-p}) - n\\
+        &= n(2 - \frac{1}{2^{p}}) - n\\
+        &= n(2 - \frac{1}{n})\\
+        &= 2n - \frac{n}{n} - n\\
+        &= 2n - 1 - n\\
+        &= n - 1
+    \end{align*}
+
+    \begin{tikzpicture}[node distance=1cm,on grid,auto,semithick,>={Stealth[round]}]
+        \node[state] (r)                                        {$1$};
+
+        \node[state] (hi)   [below left = of r, xshift=-1.75cm] {$1$};
+        \node[state] (hd)   [below right = of r, xshift=1.75cm] {$3$};
+
+        \node[state] (nii)   [below left = of hi, xshift=-0.75cm, yshift=-1cm] {$1$};
+        \node[state] (nid)   [below right = of hi, xshift=0.75cm, yshift=-1cm] {$4$};
+        \node[state] (ndi)   [below left = of hd, xshift=-0.75cm, yshift=-1cm] {$3$};
+        \node[state] (ndd)   [below right = of hd, xshift=0.75cm, yshift=-1cm] {$5$};
+
+        \node[text width=5em,text centered] (f1) [below = of nii] {$\downarrow$};
+        \node[text width=5em,text centered] (f2) [below = of nid] {$\downarrow$};
+        \node[text width=5em,text centered] (f3) [below = of ndi] {$\downarrow$};
+        \node[text width=5em,text centered] (f4) [below = of ndd] {$\downarrow$};
+
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L1) [below of = f1]{$2$};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L2) [below of = f2]{$6$};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L3) [below of = f3]{$7$};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L4) [below of = f4]{$8$};
+    
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L1) [right of = r, xshift = 6cm]{$1$};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L2) [below of = L1]{};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L3) [below of = L2]{};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L4) [below of = L3]{};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L11) [below of = L4]{};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L22) [below of = L11]{};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L33) [below of = L22]{};
+        \node[rectangle, text width = .75cm, text centered, minimum height = 1cm, draw] (L44) [below of = L33]{};
+            
+        \path[-] (r)   edge node {} (hi)
+                 (r)   edge node {} (hd)
+                 (hi)  edge node {} (nii)
+                 (hi)  edge node {} (nid)
+                 (hd)  edge node {} (ndi)
+                 (hd)  edge node {} (ndd);
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[node distance=2cm,on grid,auto,semithick,>={Stealth[round]}]
+        \node[color=Variante3] (8)                                        {$8$};
+        
+        \node[color=Variante3] (4) [below left = of 8, xshift=-1.75cm] {$4$};
+        
+        \node[color=Variante3] (2) [below left = of 4, xshift=-0.25cm] {$2$};
+        \node[] (6) [below right = of 4, xshift=0.25cm] {$6$};
+        
+        \node[] (5) [below left = of 6, xshift=0.5cm] {\textcolor{Variante4}{$5$}};
+        \node[color=Variante1] (7)  [below right = of 6, xshift=-0.5cm] {$7$};
+        
+        \node[color=Variante3] (1) [below left = of 2, xshift=0.5cm]   {$1$};
+        \node[color=Variante1] (3) [below right = of 2, xshift=-0.5cm] {$3$};
+        
+        \path[-] [color=Variante6] (8)  edge node {} (4)
+                                   (4)  edge node {} (6)
+                                   (6)  edge node {} (5);
+        
+        \path[-] (4)  edge node {} (2)
+                 (2)  edge node {} (1);
+             
+        \path[-] [color=Variante1] (6)  edge node {} (7)
+                                   (2)  edge node {} (3);
+    \end{tikzpicture}
+
+    {        
+    \renewcommand{\arraystretch}{2}
+    \setlength{\arrayrulewidth}{1.5pt}
+    \begin{NiceTabular}{| >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} |
+                        }[color-inside]
+        \CodeBefore
+            \chessboardcolors{Foreground}{Background}
+        \Body
+            \hline
+            & & & & & \\
+            & & & & & \\
+            & & & & & \\
+            & & & & & \\
+            & & & & & \\
+            & & & & & \\ \hline
+    \end{NiceTabular}
+    \hspace{2.5cm}
+    \begin{NiceTabular}{| >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} 
+                        | >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} 
+                        | >{\centering\arraybackslash} m{0.65cm} 
+                          >{\centering\arraybackslash} m{0.65cm} |
+                        }[color-inside]
+        \CodeBefore
+            \rowcolor{Background}{1,2,3,4,5,6}
+            \cellcolor{Variante1}{1-1,1-2,1-5,1-6,2-3,2-4,3-1,3-2,3-5,3-6,4-3,4-4,5-1,5-2,5-5,5-6,6-3,6-4}
+        \Body
+            \hline
+            & & & & & \\
+            & & & & & \\ \hline
+            & & & & & \\
+            & & & & & \\ \hline
+            & & & & & \\
+            & & & & & \\ \hline
+    \end{NiceTabular}
+
+    \begin{NiceTabular}{| >{\centering\arraybackslash} m{0.5cm} 
+                        | >{\centering\arraybackslash} m{0.5cm} 
+                        | >{\centering\arraybackslash} m{0.5cm} 
+                        | >{\centering\arraybackslash} m{0.5cm} 
+                        | >{\centering\arraybackslash} m{0.5cm} |
+                        }[color-inside,first-row,first-col]
+        \CodeBefore
+            \chessboardcolors {Variante1}{Background}
+            \columncolor{Variante1!25!Background}{0}
+            \rowcolor{Variante1!25!Background}{0}
+            \cellcolor{Variante6!45!Background}{3-3}
+            \cellcolor{Background}{0-1}
+            \cellcolor{Background}{1-0}
+        \Body
+              &   & J & O & J & I \\ \hline
+              & 0 & 0 & 0 & 0 & 0 \\ \hline
+            R & 0 & 0 & 0 & 0 & 0 \\ \hline
+            O & 0 & 0 & 1 & 0 & 0 \\ \hline
+            J & 0 & 1 & 0 & 2 & 0 \\ \hline
+            O & 0 & 0 & 1 & 0 & 0 \\ \hline
+    \end{NiceTabular}
+        
+    \renewcommand{\arraystretch}{1}
+    \setlength{\arrayrulewidth}{1pt}
+    }
+    
+\end{Center}

@@ -2,8 +2,7 @@
 % Módulo con los paquetes default de la plantilla.
 % -------------
 
-\usepackage{luacode} % Ejecutar lua-code
-\usepackage{silence}
+\usepackage{ifthen} % Para if-statement
 \usepackage[
 backend=biber,
 style=numeric,
@@ -15,8 +14,6 @@ sortlocale=author,
 \usetikzlibrary {automata,positioning,arrows.meta} % Necesarios para árboles, automatas, etc
 
 \usepackage[dvipsnames, table]{xcolor} % Colores (colores dvisps y para NiceMatrix)
-\usepackage{luacolor} % LuaLaTeX colors optim
-\usepackage{lua-ul} % LuaLaTeX highlighting and strikeout
 \usepackage{soul} % pdflatex highlighting
 
 \usepackage{calc} % Cálculos JIT
@@ -49,7 +46,6 @@ sortlocale=author,
 \usepackage{subcaption} % Captions distintos en misma figura
 \usepackage{hyperref} % Referenicias (in document)
 \usepackage{float} % Float (opción H "h pero obligado")
-\usepackage{etoolbox} % ifs
 \usepackage{setspace} % Interlineado
 \usepackage{fancyvrb} % Formatear verbatim
 

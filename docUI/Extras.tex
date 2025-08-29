@@ -1,7 +1,37 @@
 % -------------
-% Módulo con datos de condiguración del documento.
-% Contiene comandos, temas, código de Lua, header y footer.
+% Módulo con datos de condiguración del documento y automatizaciones.
+% Para modificar, checar el formato
 % -------------
+
+% -------------
+% Tipografía
+% -------------
+\newcommand{\famdef}{\rmfamily}
+\ifthenelse{\equal{\fuente}{firamono}}{
+  % FIRA MONO
+  \usepackage[scale = 0.82]{FiraMono} % Fuente (excepto portadas, see (Mini)Portada.tex)
+  \renewcommand{\familydefault}{\ttdefault} % Estilo de letra (para usar FiraMono)
+  \usepackage[T1]{fontenc} % Aplicar
+  \renewcommand{\famdef}{\ttfamily \sloppy}
+}{ %else
+\ifthenelse{\equal{\fuente}{firasans}}{
+  % FIRA SANS
+  \usepackage[sfdefault]{FiraSans} % Fuente (excepto portadas, see(Mini)Portada.tex)
+  \usepackage[T1]{fontenc} % Aplicar
+  \renewcommand{\oldstylenums}[1]{{\firaoldstyle #1}}
+  \renewcommand{\famdef}{\sffamily}
+}{ % else
+\ifthenelse{\equal{\fuente}{roboto}}{
+  % Roboto
+  \usepackage[sfdefault]{roboto} % Fuente (excepto portadas, see(Mini)Portada.tex)
+  \usepackage[T1]{fontenc} % Aplicar
+  \renewcommand{\famdef}{\sffamily}
+}{ % else
+  % Default
+  \usepackage[T1]{fontenc} % Uso de Montserrat en portada
+} % firamono
+} % firasans
+} % roboto
 
 % -------------
 % Nuevos comandos
@@ -16,27 +46,61 @@
 \newcommand{\spc}{\textvisiblespace}
 
 % -------------
-% Config. portada y headers con Lua
-% -------------
-\directlua{dofile("docUI/datos_portada_ui.lua")}
-
-\newcommand{\getAlumnos}{
-    \luadirect{imprimeAlumnos()}
-}
-\newcommand{\getDocentes}{
-    \luadirect{imprimeDocentes()}
-}
-\newcommand{\printVar}[1]{
-    \luadirect{tex.print(#1)}
-}
-\newcommand{\getColor}[1]{
-    \luadirect{getColor(#1)}
-}
-
-% -------------
 % Theme
 % -------------
-\luadirect{seleccionaTema("\luaescapestring{\tema}")}
+
+\ifthenelse{\equal{\tema}{darkcula}}{
+  \definecolor{Background}{HTML}{202430}
+  \definecolor{Foreground}{HTML}{F8F8EE}
+  \definecolor{Variante1}{HTML}{6272A0} % Commment
+  \definecolor{Variante2}{HTML}{444756} % Selection
+  \definecolor{Variante3}{HTML}{FF79C2} % Rosa
+  \definecolor{Variante4}{HTML}{8BE9FA} % Cyan
+  \definecolor{Variante5}{HTML}{50FA77} % Verde
+  \definecolor{Variante6}{HTML}{F1FA88} % Amarillo
+  \definecolor{Variante7}{HTML}{BD93F5} % Purpura
+  \definecolor{Variante8}{HTML}{FFB868} % Naranja
+  \definecolor{Variante9}{HTML}{FF5551} % Rojo - Extra
+}{}
+\ifthenelse{\equal{\tema}{twopro}}{
+  \definecolor{Background}{HTML}{242A2F}
+  \definecolor{Foreground}{HTML}{ABB2BB}
+  \definecolor{Variante1}{HTML}{616161} % Comment
+  \definecolor{Variante2}{HTML}{2c313a} % Selection
+  \definecolor{Variante3}{HTML}{C678DA} % Rosa
+  \definecolor{Variante4}{HTML}{E5C077} % Amarillo
+  \definecolor{Variante5}{HTML}{61AFEB} % Azul
+  \definecolor{Variante6}{HTML}{98C377} % Verde
+  \definecolor{Variante7}{HTML}{56B6BE} % Naranja
+  \definecolor{Variante8}{HTML}{E06C71} % Rojo
+  \definecolor{Variante9}{HTML}{934498} % Purpura - Extra
+}{}
+\ifthenelse{\equal{\tema}{ayuh}}{
+  \definecolor{Background}{HTML}{0D1017}
+  \definecolor{Foreground}{HTML}{CCCAC2}
+  \definecolor{Variante1}{HTML}{242936} % Comment
+  \definecolor{Variante2}{HTML}{131721} % Selection
+  \definecolor{Variante3}{HTML}{FF8F40} % Naranja
+  \definecolor{Variante4}{HTML}{39BAE6} % Azul
+  \definecolor{Variante5}{HTML}{FFB454} % Naranja Claro
+  \definecolor{Variante6}{HTML}{AAD94C} % Verde
+  \definecolor{Variante7}{HTML}{95E6CB} % Purpura
+  \definecolor{Variante8}{HTML}{D2A6FF} % Lotus
+  \definecolor{Variante9}{HTML}{F26D78} % Rojo - Extra
+}{}
+\ifthenelse{\equal{\tema}{osakanight}}{
+  \definecolor{Background}{HTML}{1A1B26}
+  \definecolor{Foreground}{HTML}{A9B1D6}
+  \definecolor{Variante1}{HTML}{565F89} % Commment
+  \definecolor{Variante2}{HTML}{24283B} % Selection
+  \definecolor{Variante3}{HTML}{BB9AF7} % Morado light
+  \definecolor{Variante4}{HTML}{5A3E8E} % Morado
+  \definecolor{Variante5}{HTML}{7AA2F7} % Azulado
+  \definecolor{Variante6}{HTML}{9ECE6A} % Verde
+  \definecolor{Variante7}{HTML}{FF9E64} % Naranja
+  \definecolor{Variante8}{HTML}{E0AF68} % Amarillo
+  \definecolor{Variante9}{HTML}{2AC3DE} % Turquesa - Extra
+}{}
 
 % -------------
 % Tema de código (lstlisting - listings)
@@ -64,6 +128,42 @@
     framexleftmargin=4pt,
     framexrightmargin=4pt,
 }
+% Uso de acentos y caracteres especiales en lstlisting
+\lstset{
+    literate=%
+         {á}{{\'a}}1
+         {í}{{\'i}}1
+         {é}{{\'e}}1
+         {ý}{{\'y}}1
+         {ú}{{\'u}}1
+         {ó}{{\'o}}1
+         {ě}{{\v{e}}}1
+         {š}{{\v{s}}}1
+         {č}{{\v{c}}}1
+         {ř}{{\v{r}}}1
+         {ž}{{\v{z}}}1
+         {ď}{{\v{d}}}1
+         {ť}{{\v{t}}}1
+         {ň}{{\v{n}}}1                
+         {ů}{{\r{u}}}1
+         {Á}{{\'A}}1
+         {Í}{{\'I}}1
+         {É}{{\'E}}1
+         {Ý}{{\'Y}}1
+         {Ú}{{\'U}}1
+         {Ó}{{\'O}}1
+         {Ě}{{\v{E}}}1
+         {Š}{{\v{S}}}1
+         {Č}{{\v{C}}}1
+         {Ř}{{\v{R}}}1
+         {Ž}{{\v{Z}}}1
+         {Ď}{{\v{D}}}1
+         {Ť}{{\v{T}}}1
+         {Ň}{{\v{N}}}1                
+         {Ů}{{\r{U}}}1
+         {ñ}{{\~{n}}}1
+         {Ñ}{{\~{N}}}1
+}
 
 % -------------
 % Encabezados y pies de página
@@ -74,27 +174,27 @@
 
 % Encabezado
 \lhead[]{ % izquierda
-    {\small\fontfamily{Montserrat-TOsF}\selectfont
+    {\small
     \begin{tabular}{m{.75cm} m{6cm}}
-        \includegraphics[width=.75cm]{resources/Logo_Universidad.png} & {\color{Variante7} \printVar{uni} | \printVar{facultad}}
+        \includegraphics[width=.75cm]{resources/logos/Logo_Universidad.png} & {\color{Variante7} \uni | \facultad}
         
-        {\color{Variante7} \printVar{carrera}} \\
+        {\color{Variante7} \carrera} \\
     \end{tabular}
     }
 }
 
 \rhead[]{ % derecha
-    {\small\fontfamily{Montserrat-TOsF}\selectfont
+    {\small
     \begin{tabular}{>{\RaggedLeft} m{6cm} m{.75cm}}
-        \color{Variante3} \printVar{materia}: & \multirow{2}{*}{\includegraphics[width=.75cm]{resources/Logo_Facultad.png}} \\
-        \color{Variante3} \printVar{titulo}&\\
+        \color{Variante3} \materia: & \multirow{2}{*}{\includegraphics[width=.75cm]{resources/logos/Logo_Facultad.png}} \\
+        \color{Variante3} \titulo&\\
     \end{tabular}
     }
 }
 %Pie de página
 
 \cfoot[]{ % center
-    {\small\color{Variante1}\fontfamily{Montserrat-TOsF}\selectfont
+    {\small\color{Variante1}
     \begin{tabular}{c c c}
         $\boldsymbol{-}$ & \thepage & $\boldsymbol{-}$
     \end{tabular}

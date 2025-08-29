@@ -1,23 +1,27 @@
 % -------------
-% Módulo con la portada de una págia completa de altura.
+% Módulo que contiene la portada.
 % -------------
-{\fontfamily{Montserrat-TOsF}\selectfont
 
-\begin{center}
+\begin{Center}
+{\fontfamily{Montserrat-TOsF}\selectfont % Monstserrat
+\thispagestyle{empty} % Sin header y footer esta página
+
+\ifthenelse{\equal{\portada}{0}}{
+% Full
 
     % -------------
     % Logos
     % -------------
     \begin{minipage}{3.5cm}
-    	\begin{center}
-	    \includegraphics[width=3cm]{resources/Logo_Universidad.png}
-    	\end{center}
+    	\begin{Center}
+	    \includegraphics[width=3cm]{resources/logos/Logo_Universidad.png}
+    	\end{Center}
     \end{minipage}
     \hfill
     \begin{minipage}{3.5cm}
-    	\begin{center}
-    	\includegraphics[width=3cm]{resources/Logo_Facultad.png}
-    	\end{center}
+    	\begin{Center}
+    	\includegraphics[width=3cm]{resources/logos/Logo_Facultad.png}
+    	\end{Center}
     \end{minipage}
 
     \vspace{0.5cm}
@@ -27,30 +31,30 @@
     % -------------
     {\scshape
         {\LARGE \color{Variante6}
-            \printVar{universidad}
+            \universidad
         }
         
         \vspace{0.25cm}
         
         {\huge \color{Variante4}
-            \printVar{facultad}
+            \facultad
         }
     
         {\LARGE \color{Variante7}
-            \printVar{carrera} \\
-            Semestre \printVar{semestre}
+            \carrera \\
+            Semestre \semestre
         }
     
         \vspace{0.35cm}
     
         {\LARGE \color{Variante5}
-            \printVar{materia}
+            \materia
         }
         
         \rule{\linewidth}{0.5mm}\\[0.4cm]
     
         {\Huge \color{Variante3}
-            \printVar{titulo}
+            \titulo
         }
     
         \rule{\linewidth}{0.5mm}\\
@@ -62,14 +66,14 @@
     {\large
     {\color{Variante8}
         \begin{tabular}{>{\RaggedLeft\arraybackslash} p{\linewidth - 6.5cm} | p{3.5cm}}
-            \getAlumnos
+            \alumnos
         \end{tabular}
     }
     
     \vspace{1cm}
     
         \begin{tabular}{>{\RaggedLeft\arraybackslash} p{\linewidth - 6.5cm} |  p{3.5cm}}
-            \getDocentes
+            \docentes
         \end{tabular}
     } % large end
 
@@ -77,6 +81,66 @@
     
     {\today}
     
-\end{center}
-} % Montserrat use
 \newpage
+}{
+% Not-full
+
+% -------------
+    % Logo Uni
+    % -------------
+    \begin{minipage}{2.5cm}
+    	\begin{Center}
+	    \includegraphics[width=2.4cm]{resources/logos/Logo_Universidad.png}
+    	\end{Center}
+    \end{minipage}
+    % -------------
+    % Títulos
+    % -------------
+    \begin{minipage}{\linewidth - 5.2cm}
+    \begin{Center}
+    {\small
+        {\scshape       
+            {\color{Variante6}
+                \universidad
+            }
+            
+            {\color{Variante4}
+                \facultad: \carrera
+            }
+        
+            {\color{Variante5}
+                \materia | \semestre
+            }
+
+            \vspace{0.15cm}
+            
+            {\large \color{Variante3}
+                \titulo
+            }
+            
+        } % scshape
+            
+        \vspace{0.15cm}
+        
+        {\color{Variante8} \footnotesize
+            \begin{tabular}{>{\raggedleft\arraybackslash} p{\linewidth - 6.5cm} | >{\raggedright\arraybackslash} p{3.5cm}}
+                \alumnos
+            \end{tabular}
+        }
+    } % small
+    \end{Center}
+    \end{minipage}
+    % -------------
+    % Logo Fac
+    % -------------
+    \begin{minipage}{2.5cm}
+    	\begin{Center}
+	       \includegraphics[width=2.4cm]{resources/logos/Logo_Facultad.png}
+    	\end{Center}
+    \end{minipage}
+    
+    \vspace{2cm}
+}
+
+} % Montserrat use
+\end{Center}
