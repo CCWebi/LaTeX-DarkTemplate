@@ -1,71 +1,82 @@
 # Portada LaTeX - dark themed
 
 > [!IMPORTANT]
-> Se usa **LuaLaTeX**.
-
-> [!CAUTION]
-> Se tiene un error al compilar `Missing \begin{document}.` por ejecutar código de Lua antes de empezar el documento. Proceder sin `halt-on-error`/`Stop on first error`. Se evitó suprimir el error para no interferir con errores en contenido.
+> Se usa **pdfLaTeX**.
 
 ## Overleaf (almost) ready
 
-Es necesario que el compilador sea **LuaLaTeX**.
-Se puede cambiar en `Overleaf` desde Menú > Compiler y seleccionar LuaLatex (pdfLaTeX está por defecto).
+Descargar como ZIP, extraer, e importar a Overleaf los archivos dentro de la carpeta recien extraida.
 
-Se prefiere cambiar los logos de universidad y facultad con los nombres en la carpeta `resources/`. De preferencia que se tenga una relación de aspecto entre 1:1 a 1:1.125.
+Es necesario que el compilador sea **pdfLaTeX** (Usado por defecto).
 
-```bash
-./resources/Logo_Universidad
-./resources/Logo_Facultad
-```
+Si quieres comprobarlo, puedes checarlo en `Menú` > `Compiler` > `pdfLaTeX`.
 
-En el docuemnto `datos_portada_ui.lua` se deben cambiar los datos de la portada.
-Es posible usar ese u otro archivo `*.lua` para trabajar con datos dinámicos antes de compilar.
+Para cambiar los logos de universidad y facultad reemplazar los archivos `resources/logo/Logo_Universidad` y `resources/logo/Logo_Facultad`. De preferencia se busca que se tenga una relación de aspecto entre 1:1 a 1:1.125.
+
+En `sample.bib` se encuentra un archivo listo para el uso de BibTeX.
+
+En el archivo `style.tex` se pueden cambiar los datos de la portada, colores y tipografía.
 Las imágenes default son de dominio público por Wikimedia Commons.
+
+El archivo `sections/elementos.tex` contiene ejemplos de uso. Para eliminarlo, ir a `main.tex` y eliminar las líneas (39 aprox.):
+
+```latex
+    % ------------
+    % Archivo temporal con ejemplos
+    \input{sections/elementos}
+    % ------------
+```
 
 ## Resultados
 
-- [Tema 1 - Portada pequeña](./output/theme1_portada-cuarto.pdf)
-- [Tema 2 - Portada completa](./output/theme2_portada-completa.pdf)
+- [Resultado tema 1 - Portada completa](./output/out.pdf)
+
+| ------------------------ | ------------------------- |
+| Tema 1: Portada completa | Tema 4: Portada de cuarto |
+| <img src="./output/t1.png" alt="tema11_portadaCompleta" width="200"/> | <img src="./output/t2.png" alt="tema2_portadaCuarto" width="200"/> |
 
 ## Estructura
 
 - `docUI/` : Carpeta con datos de UI como temas y colores; y datos del preámbulo como paquetes, comandos.
 - `resources/` : Carpeta dedicada a imágenes.
-- `sections/` : Carpeta destinada a contener `*.tex` con secciones o contenido.
+- `sections/` : Carpeta destinada a contener `*.tex` con secciones o contenido. De preferenicia agregar `\input{<nombre del archivo a agregar>}` en `sections/section.tex`.
 
-## Temas
+## Estilo
 
-Cuenta con cuatro temas en `/docUI/datos_portada_ui`:
+### Temas
+
+Cuenta con cuatro temas de colores en `/docUI/Extras.tex`:
 
 (Nombre (código a escribir en `\tema`))
 
-- Darkcula (darkcula)
-- TwoDark (twodark)
-- AyuhDark (ayuhdark)
-- Osaka Night (osakanight)
+- Darkcula (darkcula) :: Dracula MIT Licence |  [draculatheme.com/contribute](https://draculatheme.com/contribute)
+- TwoDark (twodark) :: OneDark MIT Licence | [github.com/one-dark/github-one-dark-theme](https://github.com/one-dark/github-one-dark-theme)
+- AyuhDark (ayuh) :: AyuDark MIT Licence | [github.com/ayu-theme/ayu-colors?tab=readme-ov-file](https://github.com/ayu-theme/ayu-colors?tab=readme-ov-file)
+- Osaka Night (osakanight) :: TokyoNight MIT Licence | [github.com/tokyo-night/tokyo-night-vscode-theme](https://github.com/tokyo-night/tokyo-night-vscode-theme)
 
-Es posible cambiar los temas en `main.tex` en `\newcommand{\tema}{<TEMA>}` y crear nuevos directo en `datos_portada_ui.lua`.
+Para seleccionar un tema, escribir en `style.tex` en `\newcommand{\tema}{<código de tema>}` el tema a elegir, ejemplo: `\newcommand{\tema}{darkcula}`.
 
-Si se busca cambiar la tipografía (a una dentro del documento), es necesario descomentar las líneas bajo el nombre de la tipografía, comentar la línea bajo `% Default` y descomentar líneas del estilo como `% \sloppy % Fira Mono` a `\sloppy % Fira Mono` i.e. `<commando> % <Tipografía>`. Para más información visitar [Font Catalogue](https://tug.org/FontCatalogue/allfonts.html)
+### Tipografía
 
-## Elementos
+Se cuenta con 3 tipografías además de la default.
 
-Tiene portada de hoja entera y de cuarto de hoja, es podible carmbiarlas en `main.tex`, alternando el comentado de la línea:
+- FiraMono (firamono)
+- FiraSans (firasans)
+- Roboto (roboto)
 
-```latex
-%------------------------------------------------------------
-    \thispagestyle{empty} % Sin header y footer esta página
-    % Portada
-    % \input{docUI/MiniPortada}
-    \input{docUI/Portada}
-    %------------------------------------------------------------
-```
+Modificable en `style.tex` en `\newcommand{\fuente}{<código de fuente>}` ejemplo: `\newcommand{\tema}{firasans}`. Si se deja otra clave, se tomará la fuente default. En este caso, se puede modificar la familia default cuando no se use `\newcommand{\famdef}{<familia>}`, ejemplo: `\newcommand{\famdef}{\sffamily}`.
 
-Cuenta con varios ejemplos de uso, pero está listo para ser usado y modificado.
+Para más información visitar [Font Catalogue](https://tug.org/FontCatalogue/allfonts.html)
+
+### Elementos
+
+Por defecto se tiene la portada completa, pero se puede cambiar a portada de cuarto de página en `style.tex` en `\newcommand{\portada}{<número>}`, siendo `0` para completa y `1` para la de cuarto de página.
+
+Todo listo para ser modificado.
 
 ## Documentación
 
 Se encuentra con una documentación ligera para su uso.
 
 > [!TIP]
-> Es posible usar el compilador pdfLaTeX, pasando los datos a estáticos, para dudas [contáctame](https://github.com/CCWebi).
+> Para dudas [contáctame](https://github.com/CCWebi).
