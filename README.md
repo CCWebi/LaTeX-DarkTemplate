@@ -31,9 +31,18 @@ El archivo `sections/elementos.tex` contiene ejemplos de uso. Para eliminarlo, i
 
 - [Resultado tema 1 - Portada completa](./output/out.pdf)
 
-| ------------------------ | ------------------------- |
-| Tema 1: Portada completa | Tema 4: Portada de cuarto |
-| <img src="./output/t1.png" alt="tema11_portadaCompleta" width="200"/> | <img src="./output/t2.png" alt="tema2_portadaCuarto" width="200"/> |
+<table>
+    <thead>
+        <th>Tema 1: Portada completa</th>
+        <th>Tema 4: Portada de cuarto</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="./output/t1.png" alt="tema11_portadaCompleta" width="250"/></td>
+            <td><img src="./output/t2.png" alt="tema2_portadaCuarto" width="250"/></td>
+        </tr>
+    </tbody>
+</table>
 
 ## Estructura
 
