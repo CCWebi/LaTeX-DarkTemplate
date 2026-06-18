@@ -1,0 +1,97 @@
+% -------------
+% Módulo con la configuración del documento y personalización de datos
+% -------------
+
+% Documento
+% -------------
+
+% Estilo de portada (0 - completa, 1 - cuarto de página, otro caso => 0)
+\newcommand{\portada}{0}
+
+% Tipografía para portada y por defecto (@Ver src/preambulo/fuentes)
+\SetTypos[firasans][roboto]
+
+% Paleta de colores (@Ver src/preambulo/temas)
+\newcommand{\tema}{darkcula}
+
+% Tema por defecto a \code (@See src/preambulo/style)
+\lstset{style=mucho}
+
+
+% Datos para portada
+% -------------
+
+% Nombre completo de la Universidad
+\newcommand{\Universidad}{Nombre de la Universidad}
+
+% Nombre de la Facultad
+\newcommand{\Facultad}{Nombre de la Facultad}
+
+% Nombre de la Carrera
+\newcommand{\Carrera}{Nombre de la Carrera}
+
+% Semestre actual
+\newcommand{\Semestre}{2027-1}
+
+% Nombre de la Materia
+\newcommand{\Materia}{Nombre de la materia}
+
+% Título completo de la obra
+\newcommand{\Titulo}{Titulo Completo}
+
+% Logos
+%  Preferentemente agrega pdf
+% --------------
+% Nombre del logo 1 para DARK THEMES, preferentemente de tu universidad. Debe de estar en src/assets/logos_portada
+\newcommand{\LogoUniD}{src/assets/logos_portada/uni_d.pdf}
+% Nombre del logo 1 para LIGHT THEMES, preferentemente de tu universidad. Debe de estar en src/assets/logos_portada
+\newcommand{\LogoUniL}{src/assets/logos_portada/uni_l.pdf}
+% Nombre del logo 2 para DARK THEMES, preferentemente de tu facultad, intituto o carrera. Debe de estar en src/assets/logos_portada
+\newcommand{\LogoFacD}{src/assets/logos_portada/fac_d.pdf}
+% Nombre del logo 2 para LIGHT THEMES, preferentemente de tu facultad, intituto o carrera. Debe de estar en src/assets/logos_portada
+\newcommand{\LogoFacL}{src/assets/logos_portada/fac_l.pdf}
+
+
+% Nombre de los integrantes e identificador
+\newcommand{\Integrantes}{
+    Nombre Completo 1 & ID 1 \\
+    Nombre Completo 2 & ID 2 \\
+    Nombre Completo 3 & ID 3 \\
+    \hline
+}
+
+% Nombre del profesor y puesto
+\newcommand{\Docentes}{
+    Nombre Completo del Profesor & Profesor \\
+    Nombre Completo del Asistente & Asistente \\
+    \hline
+}
+
+% Datos para header/footer (personaliza el tuyo en src/portadas/HeaderFooter.tex)
+% -------------
+% Siglas / Acrónimo de la Universidad (para header)
+\newcommand{\UniversidadSiglas}{UNI}
+
+% Siglas / Acrónimo de la Facultad (para header)
+\newcommand{\FacultadSiglas}{FAC}
+
+% Siglas / Acrónimo de la Carrera (para header)
+\newcommand{\CarreraSiglas}{CARRERA}
+
+% Siglas / Acrónimo de la materia (para header, si no tiene procurar una cadena corta)
+\newcommand{\MateriaSiglas}{Materia}
+
+% Versión acortada (si es necesario) del título (para header)
+\newcommand{\TituloCompacto}{Titulo}
+
+% Nombre de equipo o Apellidos de integrantes
+\newcommand{\NombreCompacto}{Alumno 1. Alumno 2.}
+
+% Copyrights
+% -------------
+
+% Título de la obra
+\title{\Titulo}
+
+% Nombre del autor
+\author{\Integrantes}

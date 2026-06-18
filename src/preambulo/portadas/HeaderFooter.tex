@@ -1,0 +1,48 @@
+% -------------
+% Encabezados y pies de página
+% -------------
+
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+% Diseño <<fancy>>
+\fancyhf{}
+
+% Encabezado
+%\lhead[estilo de pagina par]{estilo de página impar}
+\lhead{
+    \small\color{Variante3}
+    \IfStrEq{\isDark}{1}{
+        \includegraphics[width=0.75cm]{\LogoUniD} % Cambia 
+    }{
+        \includegraphics[width=0.75cm]{\LogoUniL}
+    }
+    \hspace{0.1cm}
+    \parbox[b]{0.45\linewidth}{
+        \RaggedRight
+        \CarreraSiglas \ | \MateriaSiglas \\[0.25ex]
+        \NombreCompacto
+    }
+}
+
+%\rhead[estilo de pagina par]{estilo de página impar}
+\rhead{
+    \small\color{Variante3}
+    \parbox[b]{0.45\linewidth}{
+        \RaggedLeft
+        \TituloCompacto \\[0.25ex]
+        \leftmark
+    }
+    \hspace{0.1cm}
+    \IfStrEq{\isDark}{1}{
+        \includegraphics[width=0.75cm]{\LogoFacD}
+    }{
+        \includegraphics[width=0.75cm]{\LogoFacL}
+    }
+}
+%Pie de página
+\renewcommand{\thepage}{--- \arabic{page} ---}
+\cfoot[]{\small\color{Variante1}
+    \thepage
+}
+
+\renewcommand{\arraystretch}{1.5}

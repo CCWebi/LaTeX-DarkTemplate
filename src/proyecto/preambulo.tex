@@ -1,0 +1,31 @@
+\documentclass{articleDark}
+
+% -------------
+% Engloba todo el preámbulo del documento
+% -------------
+
+% Importado de paquetes (la personalización de clase, geometry y babel se encuentran en la clase especial @See src/plantillaEstandarUni.cls)
+\input{src/preambulo/paquetes}
+
+% Importado de tipografías
+\input{src/preambulo/fuentes}
+
+% Importado de estilos de elementos
+\input{src/preambulo/style}
+
+% Importado de macros y snippets
+\input{src/preambulo/macros}
+
+% Importado de configuraciones
+\input{config}
+
+% Importado de temas de color para el documento
+\input{src/preambulo/temas}
+
+% Aplicar header y footer, y ajustarlos.
+\pagestyle{fancy}
+%\setlength{\textheight}{\textheight-0.75cm}
+
+% Aplicar colores al textto y fondo de los elementos
+\pagecolor{Background} % Color del fondo
+\color{Foreground} % Color del frente

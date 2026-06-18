@@ -1,0 +1,95 @@
+% -------------
+% Módulo con estialdo y colores de elementos en el documento
+% -------------
+
+% -------------
+% Personalización de headings
+% -------------
+%\titleformat{<comando>}[<tipo>]{<formato>}{<título>}{<sep>}{<pre-code>}[<post-code>]
+
+\titleformat{\section}[frame]
+    {\newpage\filcenter\bfseries\scshape\Large\color{Variante4}}
+    { \ \thesection \ \ }
+    {1ex}
+    {\filcenter\LARGE}
+    []
+
+\titleformat{\subsection}[display]
+    {\filcenter\bfseries\large\color{Variante5}}
+    {}
+    {16pt}
+    {\thesubsection. \Large}
+    [{\titlerule[1pt]}]
+
+\titleformat{\subsubsection}[block]
+    {\bfseries\normalsize\color{Variante6}}
+    {\thesubsubsection .}
+    {6pt}
+    {\large}
+    []
+
+\titlespacing*{\subsection}{0pt}{0pt}{2ex plus .5ex}
+\titlespacing*{\subsubsection}{0pt}{6ex plus 1ex minus .5ex}{1.5ex plus .5ex}
+
+% -------------
+% Tema de código (lstlisting - listings)
+% -------------
+\lstdefinestyle{mucho}{
+    backgroundcolor=\color{Background!95!Foreground},
+    rulecolor=\color{Foreground},
+    commentstyle=\color{Variante1},
+    keywordstyle=\color{Variante4},
+    escapebegin=\color{Variante3},
+    numberstyle=\tiny\color{Variante9!50!Background},
+    stringstyle=\color{Variante6},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=10pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    columns=flexible,
+    framexleftmargin=4pt,
+    framexrightmargin=4pt,
+}
+% Uso de acentos y caracteres especiales en lstlisting
+\lstset{
+    literate=%
+         {á}{{\'a}}1
+         {í}{{\'i}}1
+         {é}{{\'e}}1
+         {ý}{{\'y}}1
+         {ú}{{\'u}}1
+         {ó}{{\'o}}1
+         {ě}{{\v{e}}}1
+         {š}{{\v{s}}}1
+         {č}{{\v{c}}}1
+         {ř}{{\v{r}}}1
+         {ž}{{\v{z}}}1
+         {ď}{{\v{d}}}1
+         {ť}{{\v{t}}}1
+         {ň}{{\v{n}}}1                
+         {ů}{{\r{u}}}1
+         {Á}{{\'A}}1
+         {Í}{{\'I}}1
+         {É}{{\'E}}1
+         {Ý}{{\'Y}}1
+         {Ú}{{\'U}}1
+         {Ó}{{\'O}}1
+         {Ě}{{\v{E}}}1
+         {Š}{{\v{S}}}1
+         {Č}{{\v{C}}}1
+         {Ř}{{\v{R}}}1
+         {Ž}{{\v{Z}}}1
+         {Ď}{{\v{D}}}1
+         {Ť}{{\v{T}}}1
+         {Ň}{{\v{N}}}1                
+         {Ů}{{\r{U}}}1
+         {ñ}{{\~{n}}}1
+         {Ñ}{{\~{N}}}1
+}
