@@ -1,0 +1,55 @@
+% ------------
+% Proyecto con tema dark customizable
+% ------------
+\thispagestyle{plain} % Sin header y footer esta página
+\begin{center}
+    \coverfont
+    
+    % Logo Uni
+    % -------------
+    \begin{minipage}{0.1\linewidth}
+        \Centering
+	    \IfStrEq{\isDark}{1}{
+	       \includegraphics[width=0.9\linewidth]{\LogoUniD}
+        }{
+	       \includegraphics[width=0.9\linewidth]{\LogoUniL}
+        }
+    \end{minipage}
+    % -------------
+    % Títulos
+    % -------------
+    \begin{minipage}{0.75\linewidth}
+    \small\centering
+        {\scshape       
+            {\color{Variante6}
+                \Universidad
+            }\\
+            {\color{Variante4}
+                \Facultad: \Carrera
+            }\\
+            {\color{Variante5}
+                \Materia \ | \Semestre
+            }\\[0.5pc]
+            {\large \bfseries \color{Variante3}
+                \Titulo
+            }
+        }\\[1ex]
+        {\color{Variante8} \footnotesize
+            \begin{tabular}{>{\raggedleft\arraybackslash} p{0.7\linewidth} | >{\raggedright\arraybackslash} p{0.25\linewidth}}
+                \Integrantes
+            \end{tabular}
+        }
+    \end{minipage}
+    % -------------
+    % Logo Fac
+    % -------------
+    \begin{minipage}{0.12\linewidth}
+    	\Centering
+	       \IfStrEq{\isDark}{1}{
+	       \includegraphics[width=0.9\linewidth]{\LogoFacD}
+        }{
+	       \includegraphics[width=0.9\linewidth]{\LogoFacL}
+        }
+    \end{minipage}
+    \vspace{0.05\textheight}
+\end{center}

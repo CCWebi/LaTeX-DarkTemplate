@@ -1,0 +1,67 @@
+% -------------
+% Módulo que contiene la portada de página completa.
+% -------------
+\begin{titlepage}
+\centering
+\coverfont
+%\thispagestyle{empty} % Sin header y footer esta página
+
+    % Logos
+    % -------------
+    \begin{minipage}{2cm}
+    	\begin{Center}
+        \IfStrEq{\isDark}{1}{
+	       \includegraphics[width=2cm]{\LogoUniD}
+        }{
+	       \includegraphics[width=2cm]{\LogoUniL}
+        }
+    	\end{Center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{2cm}
+    	\begin{Center}
+    	\IfStrEq{\isDark}{1}{
+	       \includegraphics[width=2cm]{\LogoFacD}
+        }{
+	       \includegraphics[width=2cm]{\LogoFacL}
+        }
+    	\end{Center}
+    \end{minipage}\\[3ex]
+    
+    % Títulos
+    % -------------
+    {\scshape
+        {\LARGE\color{Variante6}
+            \Universidad
+        }\\[12pt]
+        {\LARGE\color{Variante3}
+            \Facultad
+        }\\[1pc]
+        {\Large\color{Variante7}
+            \Carrera\\[0.5ex]
+            Semestre \Semestre
+        }\\[16pt]
+        {\LARGE\color{Variante5}
+            \Materia
+        }\\[2ex]
+        \rule{0.95\linewidth}{0.5mm}\\[3ex]%
+        {\Huge\color{Variante4}
+            \Titulo
+        }\\[1ex]
+        \rule{0.95\linewidth}{0.5mm}%
+    }
+    \vfill
+    {\large
+    \color{Variante8}
+        \begin{tabular}{>{\raggedleft\arraybackslash} p{0.7\linewidth} | >{\raggedright\arraybackslash} p{0.25\linewidth}}
+            \Integrantes
+        \end{tabular}
+    }\\[5ex]
+    {\large
+    \color{Variante9}
+        \begin{tabular}{>{\raggedleft\arraybackslash} p{0.7\linewidth} | >{\raggedright\arraybackslash} p{0.25\linewidth}}
+            \Docentes
+        \end{tabular}
+    }\\[5ex]
+    {\today}
+\end{titlepage}

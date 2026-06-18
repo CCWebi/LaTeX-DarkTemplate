@@ -1,0 +1,131 @@
+% -------------
+% Temas
+% Los temas son independientes, pero estéticamente basádos en el gran trabajo de sus respectivos autores.
+% -------------
+
+% Comando                     | Estilo
+% ----------------------------|--------
+% default (o argumento vacío) | Light - Negro y blanco puros
+% soft                        | Light - Colores base más suaves
+% darkcula                    | Dark - Basado en la paleta Dracula Theme | https://draculatheme.com / https://github.com/dracula/dracula-theme (MIT Licence)
+% twopro                      | Dark - Basado en la paleta One Dark Theme for Vim & Theme for Atom | https://github.com/joshdick/onedark.vim / github.com/one-dark/github-one-dark-theme (MIT License)
+% darknat                     | Dark - Basado en la paleta ayu Theme | https://github.com/ayu-theme (MIT Licence)
+% osakamoon                   | Dark - Basado en la paleta TokioNight Theme | https://github.com/tokyo-night/tokyo-night-vscode-theme (MIT Licence)
+% meaw                        | Dark - Basado en la paleta Catppuccin Mocha Theme | https://catppuccin.com (MIT Licence)
+
+\newcommand{\isDark}{0}
+\IfStrEqCase{\tema}{
+    % Puedes agregar tus propios temas AQUÍ. Recuerda seguir el formato con Background, Foreground y las 9 variantes (los comandos son CaseSensitive).
+    {default}{
+        \definecolor{Background}{HTML}{FFFFFF}
+        \definecolor{Foreground}{HTML}{000000}
+        \colorlet{Variante1}{Foreground!50!Background} % Commment
+        \colorlet{Variante2}{Foreground!75!Background} % Selection
+        \colorlet{Variante3}{Foreground} % Mismo que el foreground
+        \colorlet{Variante4}{Foreground} % Mismo que el foreground
+        \colorlet{Variante5}{Foreground} % Mismo que el foreground
+        \colorlet{Variante6}{Foreground} % Mismo que el foreground
+        \colorlet{Variante7}{Foreground} % Mismo que el foreground
+        \colorlet{Variante8}{Foreground} % Mismo que el foreground
+        \colorlet{Variante9}{Foreground} % Mismo que el foreground
+        \renewcommand{\isDark}{0}
+    }
+    {soft}{
+        \definecolor{Background}{HTML}{F2F4F6}
+        \definecolor{Foreground}{HTML}{101110}
+        \colorlet{Variante1}{Foreground!50!Background } % Commment
+        \colorlet{Variante2}{Foreground!75!Background} % Selection
+        \colorlet{Variante3}{Foreground} % Mismo que el foreground
+        \colorlet{Variante4}{Foreground} % Mismo que el foreground
+        \colorlet{Variante5}{Foreground} % Mismo que el foreground
+        \colorlet{Variante6}{Foreground} % Mismo que el foreground
+        \colorlet{Variante7}{Foreground} % Mismo que el foreground
+        \colorlet{Variante8}{Foreground} % Mismo que el foreground
+        \colorlet{Variante9}{Foreground} % Mismo que el foreground
+        \renewcommand{\isDark}{0}
+    }
+    {darkcula}{
+        \definecolor{Background}{HTML}{202430}
+        \definecolor{Foreground}{HTML}{F8F8EE}
+        \definecolor{Variante1}{HTML}{6272A0} % Commment
+        \definecolor{Variante2}{HTML}{444756} % Selection
+        \definecolor{Variante3}{HTML}{FF79C2} % Rosa
+        \definecolor{Variante4}{HTML}{8BE9FA} % Cyan
+        \definecolor{Variante5}{HTML}{50FA77} % Verde
+        \definecolor{Variante6}{HTML}{F1FA88} % Amarillo
+        \definecolor{Variante7}{HTML}{BD93F5} % Purpura
+        \definecolor{Variante8}{HTML}{FFB868} % Naranja
+        \definecolor{Variante9}{HTML}{FF5551} % Rojo - Extra
+        \renewcommand{\isDark}{1}
+    }
+    {twopro}{
+        \definecolor{Background}{HTML}{242A2F}
+        \definecolor{Foreground}{HTML}{ABB2BB}
+        \definecolor{Variante1}{HTML}{616161} % Comment
+        \definecolor{Variante2}{HTML}{2c313a} % Selection
+        \definecolor{Variante3}{HTML}{C678DA} % Rosa
+        \definecolor{Variante4}{HTML}{E5C077} % Amarillo
+        \definecolor{Variante5}{HTML}{61AFEB} % Azul
+        \definecolor{Variante6}{HTML}{98C377} % Verde
+        \definecolor{Variante7}{HTML}{56B6BE} % Naranja
+        \definecolor{Variante8}{HTML}{E06C71} % Rojo
+        \definecolor{Variante9}{HTML}{934498} % Purpura - Extra
+        \renewcommand{\isDark}{1}
+    }
+    {darknat}{
+        \definecolor{Background}{HTML}{0D1017}
+        \definecolor{Foreground}{HTML}{CCCAC2}
+        \definecolor{Variante1}{HTML}{242936} % Comment
+        \definecolor{Variante2}{HTML}{131721} % Selection
+        \definecolor{Variante3}{HTML}{FF8F40} % Naranja
+        \definecolor{Variante4}{HTML}{39BAE6} % Azul
+        \definecolor{Variante5}{HTML}{FFB454} % Naranja Claro
+        \definecolor{Variante6}{HTML}{AAD94C} % Verde
+        \definecolor{Variante7}{HTML}{95E6CB} % Purpura
+        \definecolor{Variante8}{HTML}{D2A6FF} % Lotus
+        \definecolor{Variante9}{HTML}{F26D78} % Rojo - Extra
+        \renewcommand{\isDark}{1}
+    }
+    {osakamoon}{
+        \definecolor{Background}{HTML}{1A1B26}
+        \definecolor{Foreground}{HTML}{A9B1D6}
+        \definecolor{Variante1}{HTML}{565F89} % Commment
+        \definecolor{Variante2}{HTML}{24283B} % Selection
+        \definecolor{Variante3}{HTML}{BB9AF7} % Morado light
+        \definecolor{Variante4}{HTML}{5A3E8E} % Morado
+        \definecolor{Variante5}{HTML}{7AA2F7} % Azulado
+        \definecolor{Variante6}{HTML}{9ECE6A} % Verde
+        \definecolor{Variante7}{HTML}{FF9E64} % Naranja
+        \definecolor{Variante8}{HTML}{E0AF68} % Amarillo
+        \definecolor{Variante9}{HTML}{2AC3DE} % Turquesa - Extra
+        \renewcommand{\isDark}{1}
+    }
+    {meaw}{
+        \definecolor{Background}{HTML}{1D2030}
+        \definecolor{Foreground}{HTML}{CED4F6}
+        \definecolor{Variante1}{HTML}{909AC0} % Commment
+        \definecolor{Variante2}{HTML}{585C6D} % Selection
+        \definecolor{Variante3}{HTML}{CCA5FF} % Lila
+        \definecolor{Variante4}{HTML}{F5E6A1} % Amarillo
+        \definecolor{Variante5}{HTML}{90B0FD} % Azul
+        \definecolor{Variante6}{HTML}{A0E6A0} % Verde
+        \definecolor{Variante7}{HTML}{F085A4} % Rojo 
+        \definecolor{Variante8}{HTML}{F1C0E0} % Rosa
+        \definecolor{Variante9}{HTML}{FBAD91} % Naranja
+        \renewcommand{\isDark}{1}
+    } % AGREGA TU PROPIO TEMA DE COLORES AQUÍ
+    [
+        \definecolor{Background}{HTML}{FFFFFF}
+        \definecolor{Foreground}{HTML}{000000}
+        \colorlet{Variante1}{Foreground!50!Background} % Commment
+        \colorlet{Variante2}{Foreground!75!Background} % Selection
+        \colorlet{Variante3}{Foreground} % Mismo que el foreground
+        \colorlet{Variante4}{Foreground} % Mismo que el foreground
+        \colorlet{Variante5}{Foreground} % Mismo que el foreground
+        \colorlet{Variante6}{Foreground} % Mismo que el foreground
+        \colorlet{Variante7}{Foreground} % Mismo que el foreground
+        \colorlet{Variante8}{Foreground} % Mismo que el foreground
+        \colorlet{Variante9}{Foreground} % Mismo que el foreground
+        \renewcommand{\isDark}{0}
+    ]
+}

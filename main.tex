@@ -1,50 +1,35 @@
-\documentclass[12pt, letterpaper]{article} % Tamaño default y tipo de documento
-\usepackage[spanish, mexico]{babel} % Uso de acentos y ñ
-\usepackage[margin = 0.75in]{geometry} % Márgen del documento (0.75 - 1.25in en letter)
+% ------------
+% Proyecto con tema dark customizable
+% ------------
 
-% -------------
-% Personalización en style.tex
-% -------------
+% Preámbulo
+% --------
+\input{src/proyecto/preambulo}
 
-\input{docUI/Paquetes}
-\input{style}
-\input{docUI/Extras}
-
-\pagestyle{fancy} % Aplicar header y footer
-\pagecolor{Background} % Color del fondo
-\color{Foreground} % Color del frente
-\lstset{style=mystyle} % Aplicar tema del código
-\setlength{\headheight}{29pt}
-\setlength{\textheight}{\textheight-0.75cm}
-\justifying
-%--------
-
-%--------
+% Documento
+% --------
 \begin{document}
-    % ------------
     % Portada
-    \input{docUI/Portada}
     % ------------
-    
-    % Inicio del documento
-    \famdef
+    \IfStrEq{\portada}{1}{
+        \renewcommand{\arraystretch}{0.95}
+        \input{src/preambulo/portadas/PortadaDeCuarto}
+    }{
+        \renewcommand{\arraystretch}{0.8}
+        \input{src/preambulo/portadas/PortadaCompleta}
+    }
+    \input{src/preambulo/portadas/HeaderFooter}
 
-    % ------------
     % Seccion principal
-    \input{sections/section}
     % ------------
+    \bodyfam
+    \input{src/proyecto/doc}
     
-    % ------------
-    % Archivo temporal con ejemplos
-    \input{sections/elementos}
-    % ------------
-    
-    % ------------
     % Referencias con BibTeX
+    % ------------
     \newpage
     \nocite{*}
     \printbibliography
-    % ------------
 \end{document}
 
 % Webi c:

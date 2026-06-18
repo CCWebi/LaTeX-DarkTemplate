@@ -1,0 +1,93 @@
+% -------------
+% Módulo con los paquetes default de la plantilla.
+% -------------
+
+% Bibliografías y referencias
+\usepackage[
+backend=biber, % Recomendado, legacy : bibtex
+style=numeric-comp, % numeric, apa, authoryear
+sortlocale=author, % auto, nty (o variaciones de orden), none
+]{biblatex}
+    % \bibliographystyle{stylename} % apalike, ieeetr, plain, unsrt, alpha
+\bibliography{src/proyecto/references.bib} % Archivo con las referencias
+% Comillas para biblatex
+\usepackage{csquotes}
+
+% Uso para macros
+\usepackage{xstring}
+
+% Gráficas
+\usepackage{graphicx}
+
+% Headers y footers
+\usepackage{fancyhdr}
+
+% Código
+\usepackage{listings}
+
+% Colores (colores dvisps)
+% \usepackage[dvipsnames]{xcolor}
+
+% pdflatex highlighting
+% \usepackage{soul}
+
+% Cálculos JIT
+% \usepackage{calc}
+% Small bold/TT caps
+% \usepackage{bold-extra}
+% Justificación del texto
+\usepackage{ragged2e}
+
+% Símbolos y fuenets matemáticas
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,commath}
+
+% Unidades del SisInt (útil con floats)
+% \usepackage{siunitx}
+
+% Sistemas de ecuaciones
+% \usepackage{systeme}
+
+% Multicolumnas en tablas
+\usepackage{multicol} 
+% Multirenglones en tablas
+\usepackage{multirow}
+
+% Para tablas estiladas
+\usepackage{nicematrix}
+% Tablas multipágina
+\usepackage{xltabular}
+% Tablas simples pero más bonitas (sin verticales)
+\usepackage{booktabs}
+
+% Lorem Ipsum
+\usepackage{lipsum}
+
+% Texto pegado a imagenes
+\usepackage{wrapfig}
+
+% Evita usar // y separa automáticamente
+\usepackage{parskip}
+
+% Format enumerates/itemize
+\usepackage{enumitem}
+
+% Format captions
+\usepackage{caption}
+
+% Captions distintos en misma figura
+\usepackage{subcaption}
+
+% Referenicias (in document)
+\usepackage{hyperref}
+
+% Float (opción H "h pero obligado")
+\usepackage{float}
+
+% Interlineado
+\usepackage{setspace}
+
+% Formatear verbatim
+\usepackage{fancyvrb}
+
+% Personalizar headings
+\usepackage{titlesec}

@@ -1,0 +1,96 @@
+% -------------
+% Macros / Snippets usados comunmente
+%
+% $ := Uso en mathmode
+% #N := Argumento N.
+% #N! := Argumento opcional N.
+% -------------
+
+% Macros de remplazo (comando nuevo) (comando a reemplazar)
+\newcommand{\itz}{\textcolor{Variante7}{$\triangleright$}}
+\newcommand{\iitz}{\textcolor{Variante8}{$\diamond$}}
+\newcommand{\iiitz}{\textcolor{Variante9}{$\circ$}}
+\newcommand{\ienum}{\textcolor{Variante7}{\arabic*.}}
+\newcommand{\iienum}{\textcolor{Variante8}{\alph*.}}
+\newcommand{\iiienum}{\textcolor{Variante9}{\roman*.}}
+\newcommand{\spc}{\textvisiblespace}
+\newcommand{\qed}{\hfill $\blacksquare$}
+\newcommand{\ra}{\rightarrow} % $
+\newcommand{\la}{\leftarrow} % $
+\newcommand{\Ra}{\Rightarrow} % $
+\newcommand{\sii}{\Longleftrightarrow} % $
+\newcommand{\R}{\mathbb{R}} % $
+\newcommand{\N}{\mathbb{N}} % $
+\newcommand{\Z}{\mathbb{Z}} % $
+\newcommand{\C}{\mathbb{C}} % $
+
+% Macros de sustitución (comando nuevo) [argumentos] (comando a reemplazar, #N es el argumento N)
+\newcommand{\Eq}[1]{Ec.~(\ref{#1})}
+\newcommand{\Fig}[1]{Fig.~\ref{#1}}
+\newcommand{\Sec}[1]{Sec.~\ref{#1}}
+\newcommand{\IT}[1]{\textit{#1}}
+\newcommand{\TT}[1]{\texttt{#1}}
+\newcommand{\SC}[1]{\textsc{#1}}
+\newcommand{\BF}[1]{\textbf{#1}}
+\newcommand{\MB}[1]{\mathbf{#1}} % $
+
+% Redefinición al español de nombres o customización (sin estilado)
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\arraystretch}{1.5}
+
+
+% Figuras estilizadas con imagen
+%   Figuras con entradas para imagen, centradas y con aparición exactamente donde se coloca el comando.
+% -------------------
+% #1! : Factor de multiplicación para la longitud (ej. 0.5, 0.75, 0.33), "1" por defecto
+% #2  : PATH a la imagen, se asume que está en src/assets
+% #3  : Pie de página
+% #4  : Etiqueta a tag para referenciar
+\NewDocumentCommand{\fimage}{ O{} m m m }{
+    \begin{figure}[H]
+        \Centering
+        \includegraphics[width=#1\linewidth]{src/assets/#2}
+        \caption{#3}
+        \label{#4}
+    \end{figure}
+}
+
+% Figuras estilizadas multiuso (y con opción de uso para subfigures)
+%   Figuras flexibles con estilado centrado.
+% -------------------
+% #1! : Ubicación, "H" por defecto
+% #2  : Contenido de la figura
+% #3  : Pie de página
+% #4  : Etiqueta a tag para referenciar
+\NewDocumentCommand{\figura}{ O{H} m m m }{
+    \begin{figure}[#1]
+        \Centering
+        #2
+        \caption{#3}
+        \label{#4}
+    \end{figure}
+}
+
+% Tablas estilizadas
+%   Crea un ambiente que crea una tabla con NiceMatrix, con opciones de color, para primer renglón, y para intercalar.
+% -------------------
+% #1  : Si la función se llama como \tabla* entonces, se solicita que el texto sea de color claro.
+% #2  : Bandera !. Si la lleva se coloca un \hline al inicio
+% #3  : Color de fondo del primer renglón
+% #4  : Color desvanecido de los renglones impares (sin contar el primero)
+% #5  : Estilo de columnas
+\NewDocumentEnvironment{tabla}{ t* t! O{Variante4} O{Variante4} m }
+{
+    \begin{Center}
+    \begin{NiceTabular}{#5}
+    \CodeBefore
+        \rowlistcolors{2}{Background, #3!20!Background}
+    \Body
+        \IfBooleanTF{#2}{\hline}{}
+        \rowcolor{#4}
+        \IfBooleanTF{#1}{\RowStyle{\color{Foreground}}}{\RowStyle{\color{Background}}}
+}
+{
+    \end{NiceTabular}
+    \end{Center}
+}

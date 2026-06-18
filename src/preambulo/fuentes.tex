@@ -1,0 +1,100 @@
+% -------------
+% Tipografías como predeterminadas (hecho para pdfLaTeX)
+% -------------
+
+% El uso de T1 en lugar de OT1 es para que caracteres acentuados o ligaduras estén unidos y no se encuentrén separados (caracteres de 8 bits).
+
+% Tipografías precargadas desde THE FONT CATALOGUE 
+% https://tug.org/FontCatalogue/allfonts.html
+
+% Tipografía disponible | Comando
+% ----------------------|--------
+% Computer Moderm       | default (o argumento vacío)
+% Fira Mono             | firamono
+% Fira Sans             | firasans
+% Roboto                | roboto
+% Latin Modern          | lmodern
+% Source Sans Pro       | sourcesp
+% Monstserrat           | montserrat
+
+% Modo de tipografía para uso en la portada, por defecto rm
+\newcommand{\coverfont}{\rmfamily}
+\newcommand{\bodyfam}{\rmfamily}
+
+% Aplica la tipografía del cuerpo del documento.
+% -------------------
+% #2! : Tipografía por defecto, computer modern por defecto
+\NewDocumentCommand{\SetTypog}{ O{} }{
+    \IfStrEqCase{#1}{
+        % Puedes agregar AQUÍ tus fuentes preferidas. Para más detalles visita https://tug.org/FontCatalogue/allfonts.html
+        {default}{
+            % COMPUTER MODERN
+            \usepackage[T1]{fontenc}
+        }
+        {firamono}{
+            % FIRA MONO
+            \usepackage{FiraMono}
+            \usepackage[T1]{fontenc}
+            \renewcommand{\bodyfam}{\ttfamily}
+        }
+        {firasans}{
+            % FIRA SANS
+            \usepackage[sfdefault]{FiraSans}
+            %paro1
+            \usepackage[T1]{fontenc}
+            %paro2
+            \renewcommand{\oldstylenums}[1]{{\firaoldstyle #1}} % Habilita números colgantes
+            %paro3
+            \renewcommand{\bodyfam}{\sffamily}
+            %paro4
+        }
+        {roboto}{
+            % Roboto
+            \usepackage[sfdefault]{roboto}
+            \usepackage[T1]{fontenc}
+            \renewcommand{\bodyfam}{\sffamily}
+        }
+        {lmodern}{
+            % Latin Modern
+            \usepackage{lmodern}
+            \usepackage[T1]{fontenc}
+            \usepackage{aesupp} % Soporte de caracteres
+        }
+        {helvet}{
+            % QT Helvet Condensed
+            \usepackage{fontspec}
+            \setmainfont[BoldFont=*-Black]{QTHelvetCnd}
+        }
+        {sourcesp}{
+            % Source Sans Pro
+            \usepackage[default]{sourcesanspro}
+            \usepackage[T1]{fontenc}
+        }
+        {montserrat}{
+            \usepackage[light,tabular,lining]{montserrat} %% Option 'defaultfam' only if the base font of the document is to be sans serif
+            \usepackage[T1]{fontenc}
+            \renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+        }
+        [\usepackage[T1]{fontenc}] % COMPUTER MODERN
+    }
+}
+
+% Selecciona la tipografía por default y la tipografía del cuerpo del documento.
+%   Selecciona una fuente sobre \coverfont y aplica otro por defecto.
+% -------------------
+% #1! : Tipografía para portada, computer modern por defecto
+% #2! : Tipografía por defecto, computer modern por defecto
+\NewDocumentCommand{\SetTypos}{ O{default} O{default} }{
+    \SetTypog[#2]
+    
+    \IfStrEqCase{#1}{
+        {default}{\renewcommand{\coverfont}{\fontfamily{cmr}\selectfont}}
+        {firamono}{\renewcommand{\coverfont}{\fontfamily{FiraMono-TLF}\selectfont}}
+        {firasans}{\renewcommand{\coverfont}{\fontfamily{FiraSans-TLF}\selectfont}}
+        {roboto}{\renewcommand{\coverfont}{\fontfamily{Roboto-LF}\selectfont}}
+        {lmodern}{\renewcommand{\coverfont}{\fontfamily{lmr}\selectfont}}
+        {sourcesp}{\renewcommand{\coverfont}{\fontfamily{SourceSansPro-LF}\selectfont}}
+        {montserrat}{\renewcommand{\coverfont}{\fontfamily{Montserrat-LF}\selectfont}}
+        [\renewcommand{\coverfont}{\fontfamily{cmr}\selectfont}]
+    }
+}
